@@ -65,12 +65,12 @@ case $option in
         echo "Comando 'httpx' concluído."
 
         echo "Executando o comando 'dalfox':"
-        cat httpx-output.txt | dalfox pipe |& tee dalfox-output.txt
+        cat httpx-output.txt | dalfox pipe --only-poc='g,r,v' |& tee dalfox-output.txt
         echo "Comando 'dalfox' concluído."
 
-        #echo "Executando o comando 'nuclei':"
-        #nuclei --severity low,medium,high,critical > outputNuclei.txt
-        #echo "Comando 'nuclei' concluído."
+        echo "Executando o comando 'nuclei':"
+        cat httpx-output.txt | nuclei --severity low,medium,high,critical |& tee nuclei-output.txt
+        echo "Comando 'nuclei' concluído."
 
         echo "Fim do script."
         ;;
