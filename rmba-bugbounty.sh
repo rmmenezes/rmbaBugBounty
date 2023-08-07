@@ -49,7 +49,7 @@ case $option in
         echo "Iniciando o script..."
 
         echo "Executando o comando 'subfinder':"
-        subfinder -all -silent -dL escope.txt -o subfinder-output.txt
+        subfinder -all -silent -dL escope.txt -o subfinder-output.txt &>/dev/null
         echo "Comando 'subfinder' concluído."
 
         echo "Executando o comando 'gau':"
@@ -61,11 +61,11 @@ case $option in
         echo "Comando 'uro' concluído."
 
         echo "Executando o comando 'httpx':"
-        cat uro-output.txt | httpx -silent -o httpx-output.txt
+        cat uro-output.txt | httpx -silent -o httpx-output.txt &>/dev/null
         echo "Comando 'httpx' concluído."
 
         echo "Executando o comando 'dalfox':"
-        cat httpx-output.txt |  dalfox pipe --report -o dalefox-output.txt
+        cat httpx-output.txt | dalfox pipe |& tee dalfox-output.txt
         echo "Comando 'dalfox' concluído."
 
         #echo "Executando o comando 'nuclei':"
