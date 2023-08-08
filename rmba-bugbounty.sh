@@ -45,7 +45,6 @@ case $option in
         ;;
     2)
         echo "Executando a ferramenta..."
-        # Coloque os comandos da ferramenta aqui
         echo "Iniciando o script..."
 
         echo "Executando o comando 'subfinder':"
@@ -65,12 +64,12 @@ case $option in
         echo "Comando 'httpx' concluído."
 
         echo "Executando o comando 'dalfox':"
-        cat httpx-output.txt | dalfox pipe --only-poc='g,r,v' |& tee dalfox-output.txt
-        echo "Comando 'dalfox' concluído."
+        cat httpx-output.txt | dalfox pipe --silence --format json -o dalfox-output.json
+        echo "Comando 'dalfox' concluído. Verificar o arquivo 'dalfox-output.json'"
 
         echo "Executando o comando 'nuclei':"
-        cat httpx-output.txt | nuclei --severity low,medium,high,critical |& tee nuclei-output.txt
-        echo "Comando 'nuclei' concluído."
+        cat httpx-output.txt | nuclei -silent --severity low,medium,high,critical |& tee nuclei-output.txt
+        echo "Comando 'nuclei' concluído. Verificaro o arquivo nuclei-output.txt "
 
         echo "Fim do script."
         ;;
