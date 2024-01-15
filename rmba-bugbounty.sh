@@ -48,7 +48,7 @@ case $option in
         echo "Iniciando o script..."
 
         echo "Executando o comando 'subfinder':"
-        subfinder -all -silent -dL escope.txt -o subfinder-output.txt &>/dev/null
+        subfinder -silent -dL escope.txt -o subfinder-output.txt &>/dev/null
         echo "Comando 'subfinder' concluído."
 
         echo "Executando o comando 'gau':"
