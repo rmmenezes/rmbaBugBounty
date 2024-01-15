@@ -53,6 +53,7 @@ case $option in
 
         echo "Executando o comando 'gau':"
         cat subfinder-output.txt | gau --blacklist md,jpg,jpeg,gif,css,tif,tiff,png,ttf,woff,woff2,ico --from 202201 --providers wayback --o gau-output.txt
+        sort gau-output.txt | uniq > gau-output.txt
         echo "Comando 'gau' concluído."
 
         echo "Executando o comando 'uro':"
