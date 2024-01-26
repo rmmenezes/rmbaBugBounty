@@ -14,11 +14,11 @@ case $option in
         sudo apt update
         sudo apt install golang python3-pip -y
 
+        echo "Instalando Dirsearch"
+        sudo apt install dirsearch
+
         echo "Instalando Subfinder..."
         go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
-
-        echo "Instalando Airixss..."
-        go install github.com/ferreiraklet/airixss@latest
 
         echo "Instalando Httpx..."
         go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
@@ -28,9 +28,6 @@ case $option in
 
         echo "Instalando Nuclei..."
         go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
-
-        echo "Instalando Waybackurls..."
-        go install github.com/tomnomnom/waybackurls@latest
 
         echo "Instalando Uro..."
         sudo pip3 install uro
@@ -48,7 +45,7 @@ case $option in
         echo "Iniciando o script..."
 
         echo "Executando o comando 'subfinder':"
-        subfinder -silent -dL escope.txt -o subfinder-output.txt &>/dev/null
+        subfinder -silent -dL escope.txt -o subfinder-output.txt
         echo "Comando 'subfinder' concluído."
 
         echo "Executando o comando 'gau':"
