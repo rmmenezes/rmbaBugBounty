@@ -1,0 +1,5 @@
+sip.kunstraum.li
+autodiscover.kunstraum.li
+lyncdiscover.kunstraum.li
+www.kunstraum.li
+37www.kunstraum.li
